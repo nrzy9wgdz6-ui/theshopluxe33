@@ -118,8 +118,11 @@ document.querySelectorAll(".add-to-cart:not(:disabled)").forEach(button => {
   button.addEventListener("click", () => {
     const product = button.dataset.product;
     const price = Number(button.dataset.price);
-    const variant = button.closest(".product-card")
-      ?.querySelector(".selected-variant strong")?.textContent || "Modèle standard";
+    const productCard = button.closest(".product-card");
+    const selectedOptions = Array.from(productCard?.querySelectorAll(".cart-option strong") || [])
+      .map(option => option.textContent.trim())
+      .filter(Boolean);
+    const variant = selectedOptions.length ? selectedOptions.join(" • ") : "Modèle standard";
     const existing = cart.find(item => item.product === product && item.variant === variant);
 
     if (existing) existing.quantity += 1;
@@ -191,6 +194,19 @@ document.querySelectorAll(".dior-view").forEach(button => {
     document.querySelectorAll(".dior-view").forEach(item => item.classList.remove("active"));
     button.classList.add("active");
     updateDiorImage();
+  });
+});
+
+document.querySelectorAll(".size-picker").forEach(picker => {
+  const productCard = picker.closest(".product-card");
+  const selectedSize = productCard?.querySelector(".selected-size");
+
+  picker.querySelectorAll(".size-option").forEach(button => {
+    button.addEventListener("click", () => {
+      picker.querySelectorAll(".size-option").forEach(item => item.classList.remove("active"));
+      button.classList.add("active");
+      if (selectedSize) selectedSize.textContent = button.dataset.size;
+    });
   });
 });
 
