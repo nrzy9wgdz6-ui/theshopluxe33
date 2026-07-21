@@ -210,5 +210,18 @@ document.querySelectorAll(".size-picker").forEach(picker => {
   });
 });
 
+document.querySelectorAll(".simple-color-picker").forEach(picker => {
+  const productCard = picker.closest(".product-card");
+  const selectedColor = productCard?.querySelector(".selected-color");
+
+  picker.querySelectorAll(".simple-color-option").forEach(button => {
+    button.addEventListener("click", () => {
+      picker.querySelectorAll(".simple-color-option").forEach(item => item.classList.remove("active"));
+      button.classList.add("active");
+      if (selectedColor) selectedColor.textContent = button.dataset.color;
+    });
+  });
+});
+
 document.querySelector("#year").textContent = new Date().getFullYear();
 updateCart();
