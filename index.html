@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="ShopLuxe33 — boutique premium, mode et accessoires." />
+  <title>ShopLuxe33 — Boutique premium</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <meta name="theme-color" content="#070707" />
+</head>
+<body>
+  <div class="topbar">Livraison suivie • Paiement sécurisé • Service client disponible</div>
+
+  <header class="header">
+    <a class="brand" href="#accueil">
+      <img src="assets/logo-shopluxe33.png" alt="Logo ShopLuxe33" />
+      <span>ShopLuxe33</span>
+    </a>
+
+    <button class="menu-button" aria-label="Ouvrir le menu" aria-expanded="false">☰</button>
+
+    <nav class="nav">
+      <a href="#accueil">Accueil</a>
+      <a href="#nouveautes">Catalogue</a>
+      <a href="#homme">Homme</a>
+      <a href="#femme">Femme</a>
+      <a href="#accessoires">Accessoires</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <button class="cart-button" aria-label="Voir le panier" aria-controls="cart-drawer" aria-expanded="false">
+      Panier <span id="cart-count">0</span>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero" id="accueil">
+      <div class="oriental-corner corner-left" aria-hidden="true"></div>
+      <div class="oriental-corner corner-right" aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <p class="eyebrow">Collection exclusive</p>
+        <h1>L'élégance moderne,<br><em>à ta manière.</em></h1>
+        <p class="hero-text">
+          Une sélection premium pensée pour celles et ceux qui veulent se démarquer.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-gold" href="#nouveautes">Découvrir la collection</a>
+          <a class="btn btn-outline" href="https://wa.me/33773267816" target="_blank" rel="noopener">Commander sur WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="benefits">
+      <article><strong>01</strong><span>Sélection premium</span></article>
+      <article><strong>02</strong><span>Expédition suivie</span></article>
+      <article><strong>03</strong><span>Assistance rapide</span></article>
+    </section>
+
+    <section class="section" id="nouveautes">
+      <div class="section-heading centered">
+        <p class="eyebrow">ShopLuxe33</p>
+        <h2>Catalogue par catégorie</h2>
+        <p>Retrouvez chaque article classé par type pour parcourir facilement la collection.</p>
+      </div>
+
+      <div class="catalogue-links">
+        <a class="catalogue-link" href="#tshirts">
+          <span>01</span>
+          <strong>T-shirts</strong>
+          <small>Moncler et Dior</small>
+        </a>
+        <a class="catalogue-link" href="#shorts">
+          <span>02</span>
+          <strong>Shorts</strong>
+          <small>Collection Homme</small>
+        </a>
+        <a class="catalogue-link" href="#maroquinerie">
+          <span>03</span>
+          <strong>Maroquinerie</strong>
+          <small>Sacs et accessoires</small>
+        </a>
+      </div>
+    </section>
+
+    <section class="split-section" id="homme-intro">
+      <div class="split-visual visual-dark">
+        <div class="pattern"></div>
+        <span>Collection Homme</span>
+      </div>
+      <div class="split-content">
+        <p class="eyebrow">Sobriété & caractère</p>
+        <h2>La collection Homme</h2>
+        <p>
+          Des coupes modernes, des matières agréables et une identité élégante.
+          Remplace ce texte par la présentation de ta propre collection.
+        </p>
+        <a class="text-link" href="#homme">Voir la sélection →</a>
+      </div>
+    </section>
+
+    <section class="section men-products" id="homme">
+      <div class="section-heading centered">
+        <p class="eyebrow">Collection homme</p>
+        <h2>Homme</h2>
+        <p>Découvrez les pièces disponibles dans la collection Homme ShopLuxe33.</p>
+      </div>
+
+      <div class="catalog-group" id="tshirts">
+        <div class="catalog-group-heading">
+          <p class="eyebrow">Vêtements</p>
+          <h3>T-shirts</h3>
+        </div>
+
+        <div class="product-grid men-products-grid">
+          <article class="product-card">
+            <div class="product-gallery product-gallery--square">
+              <img id="moncler-main-image" class="product-main-image"
+                   src="assets/tshirt-noir-logo-noir.png"
+                   alt="T-shirt noir avec logo noir">
+            </div>
+            <div class="product-info">
+              <p class="product-category">Homme • T-shirt • 4 coloris</p>
+              <h3>T-shirt Moncler — 4 coloris</h3>
+
+              <div class="variant-picker">
+                <button class="variant active" data-image="assets/tshirt-noir-logo-noir.png" data-label="Noir avec logo noir">Noir / Noir</button>
+                <button class="variant" data-image="assets/tshirt-noir-logo-dore.png" data-label="Noir avec logo doré">Noir / Doré</button>
+                <button class="variant" data-image="assets/tshirt-blanc-logo-dore.png" data-label="Blanc avec logo doré">Blanc / Doré</button>
+                <button class="variant" data-image="assets/tshirt-blanc-logo-noir.png" data-label="Blanc avec logo noir">Blanc / Noir</button>
+              </div>
+
+              <p class="selected-variant">Coloris sélectionné :
+                <strong id="selected-moncler-variant">Noir avec logo noir</strong>
+              </p>
+
+              <div class="product-bottom">
+                <span class="price">40,00 €</span>
+                <button class="add-to-cart" data-product="T-shirt Moncler — 4 coloris" data-price="40">Ajouter</button>
+              </div>
+
+              <a class="whatsapp-product-btn"
+                 href="https://wa.me/33773267816?text=Bonjour%2C%20je%20souhaite%20commander%20le%20T-shirt%20Moncler%20%C3%A0%2040%E2%82%AC."
+                 target="_blank" rel="noopener">
+                Commander sur WhatsApp
+              </a>
+              <a class="telegram-product-btn"
+                 href="https://t.me/shopluxery33?text=Bonjour%2C%20je%20souhaite%20commander%20le%20T-shirt%20Moncler%20%C3%A0%2040%20%E2%82%AC."
+                 target="_blank" rel="noopener">
+                Commander sur Telegram
+              </a>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-gallery product-gallery--square">
+              <img id="dior-main-image" class="product-main-image"
+                   src="assets/tshirt-dior-noir-face.png"
+                   alt="T-shirt Dior noir, vue de face">
+            </div>
+            <div class="product-info">
+              <p class="product-category">Homme • T-shirt • 2 coloris</p>
+              <h3>T-shirt Dior</h3>
+
+              <div class="variant-picker" aria-label="Choisir le coloris">
+                <button type="button" class="product-option dior-color active"
+                        data-color="Noir"
+                        data-front="assets/tshirt-dior-noir-face.png"
+                        data-back="assets/tshirt-dior-noir-dos.png">Noir</button>
+                <button type="button" class="product-option dior-color"
+                        data-color="Blanc"
+                        data-front="assets/tshirt-dior-blanc-face.png"
+                        data-back="assets/tshirt-dior-blanc-dos.png">Blanc</button>
+              </div>
+
+              <div class="variant-picker product-view-picker" aria-label="Choisir la vue">
+                <button type="button" class="product-option dior-view active" data-view="front">Face</button>
+                <button type="button" class="product-option dior-view" data-view="back">Dos</button>
+              </div>
+
+              <p class="selected-variant">Coloris sélectionné :
+                <strong id="selected-dior-variant">Noir</strong>
+              </p>
+
+              <div class="product-bottom">
+                <span class="price">50,00 €</span>
+                <button class="add-to-cart"
+                        data-product="T-shirt Dior"
+                        data-price="50">Ajouter</button>
+              </div>
+              <a class="whatsapp-product-btn"
+                 href="https://wa.me/33773267816?text=Bonjour%2C%20je%20souhaite%20commander%20le%20T-shirt%20Dior%20noir%20ou%20blanc%20%C3%A0%2050%20%E2%82%AC."
+                 target="_blank" rel="noopener">
+                Commander sur WhatsApp
+              </a>
+              <a class="telegram-product-btn"
+                 href="https://t.me/shopluxery33?text=Bonjour%2C%20je%20souhaite%20commander%20le%20T-shirt%20Dior%20%C3%A0%2050%20%E2%82%AC."
+                 target="_blank" rel="noopener">
+                Commander sur Telegram
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="catalog-group" id="shorts">
+        <div class="catalog-group-heading">
+          <p class="eyebrow">Vêtements</p>
+          <h3>Shorts</h3>
+        </div>
+
+        <div class="product-grid single-product-grid">
+          <article class="product-card">
+            <div class="product-image product-image--contain product-image--square">
+              <img src="assets/short-burberry.png"
+                   alt="Short Burberry à carreaux beige, noir et rouge"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <p class="product-category">Homme • Short</p>
+              <h3>Short Burberry à carreaux</h3>
+              <div class="product-bottom">
+                <span class="price">40,00 €</span>
+                <button class="add-to-cart"
+                        data-product="Short Burberry à carreaux"
+                        data-price="40">Ajouter</button>
+              </div>
+              <a class="whatsapp-product-btn"
+                 href="https://wa.me/33773267816?text=Bonjour%2C%20je%20souhaite%20commander%20le%20Short%20Burberry%20%C3%A0%20carreaux%20%C3%A0%2040%20%E2%82%AC."
+                 target="_blank" rel="noopener">
+                Commander sur WhatsApp
+              </a>
+              <a class="telegram-product-btn"
+                 href="https://t.me/shopluxery33?text=Bonjour%2C%20je%20souhaite%20commander%20le%20Short%20Burberry%20%C3%A0%20carreaux%20%C3%A0%2040%20%E2%82%AC."
+                 target="_blank" rel="noopener">
+                Commander sur Telegram
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="split-section reverse" id="femme">
+      <div class="split-visual visual-light">
+        <div class="pattern"></div>
+        <span>Collection Femme</span>
+      </div>
+      <div class="split-content">
+        <p class="eyebrow">Élégance & distinction</p>
+        <h2>La collection Femme</h2>
+        <p>
+          Une sélection raffinée pour une silhouette moderne, avec des détails
+          subtils inspirés de l'élégance orientale.
+        </p>
+        <a class="text-link" href="#nouveautes">Voir la sélection →</a>
+      </div>
+    </section>
+
+    <section class="section accessories" id="accessoires">
+      <div class="section-heading centered">
+        <p class="eyebrow">Les détails font la différence</p>
+        <h2>Accessoires</h2>
+        <p>Découvrez les accessoires disponibles dans la collection ShopLuxe33.</p>
+      </div>
+
+      <div class="catalog-group" id="maroquinerie">
+        <div class="catalog-group-heading">
+          <p class="eyebrow">Accessoires</p>
+          <h3>Maroquinerie</h3>
+        </div>
+
+        <div class="product-grid accessories-grid">
+          <article class="product-card accessory-card">
+            <div class="product-image product-image--contain">
+              <img src="assets/sac-banane-supreme.png"
+                   alt="Sac banane Supreme en toile enduite monogrammée avec gravure en cuir"
+                   loading="lazy">
+            </div>
+            <div class="product-info">
+              <p class="product-category">Accessoire homme • Sac banane</p>
+              <h3>Sac banane Supreme en toile enduite monogrammée avec gravure en cuir</h3>
+              <div class="product-bottom">
+                <span class="price">70,00 €</span>
+                <button class="add-to-cart"
+                        data-product="Sac banane Supreme en toile enduite monogrammée avec gravure en cuir"
+                        data-price="70">Ajouter</button>
+              </div>
+              <a class="whatsapp-product-btn"
+                 href="https://wa.me/33773267816?text=Bonjour%2C%20je%20souhaite%20commander%20le%20Sac%20banane%20Supreme%20en%20toile%20enduite%20monogramm%C3%A9e%20avec%20gravure%20en%20cuir%20%C3%A0%2070%20%E2%82%AC."
+                 target="_blank" rel="noopener">
+                Commander sur WhatsApp
+              </a>
+              <a class="telegram-product-btn"
+                 href="https://t.me/shopluxery33?text=Bonjour%2C%20je%20souhaite%20commander%20le%20Sac%20banane%20Supreme%20%C3%A0%2070%20%E2%82%AC."
+                 target="_blank" rel="noopener">
+                Commander sur Telegram
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div>
+        <p class="eyebrow">Restons connectés</p>
+        <h2>Une question ou une commande ?</h2>
+        <p>Contacte ShopLuxe33 directement sur le réseau de ton choix.</p>
+      </div>
+
+      <div class="social-links">
+        <a href="https://instagram.com/shop_luxery33" target="_blank" rel="noopener">
+          <span>Instagram</span><strong>@shop_luxery33</strong>
+        </a>
+        <a href="https://t.me/shopluxery33" target="_blank" rel="noopener">
+          <span>Telegram</span><strong>@shopluxery33</strong>
+        </a>
+        <a href="https://wa.me/33773267816" target="_blank" rel="noopener">
+          <span>WhatsApp</span><strong>07 73 26 78 16</strong>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-brand">
+      <img src="assets/logo-shopluxe33.png" alt="ShopLuxe33" />
+      <p>ShopLuxe33 — boutique indépendante.</p>
+    </div>
+    <div class="footer-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">Conditions de vente</a>
+      <a href="#">Livraison & retours</a>
+      <a href="#">Confidentialité</a>
+    </div>
+    <p class="legal-note">Boutique indépendante, non affiliée aux marques éventuellement citées. Les articles de marque doivent être authentiques et accompagnés de preuves de provenance.</p>
+    <p class="copyright">© <span id="year"></span> ShopLuxe33. Tous droits réservés.</p>
+  </footer>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="cart-overlay" id="cart-overlay" hidden></div>
+  <aside class="cart-drawer" id="cart-drawer" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="cart-header">
+      <div>
+        <p class="eyebrow">Votre sélection</p>
+        <h2 id="cart-title">Panier</h2>
+      </div>
+      <button class="cart-close" type="button" aria-label="Fermer le panier">×</button>
+    </div>
+    <div class="cart-items" id="cart-items"></div>
+    <p class="cart-empty" id="cart-empty">Votre panier est vide.</p>
+    <div class="cart-summary" id="cart-summary" hidden>
+      <div><span>Total</span><strong id="cart-total">0,00 €</strong></div>
+      <a class="btn btn-gold" id="cart-whatsapp" href="https://wa.me/33773267816" target="_blank" rel="noopener">Commander sur WhatsApp</a>
+      <p>Le paiement et la livraison sont confirmés directement avec ShopLuxe33.</p>
+    </div>
+  </aside>
+  <script src="script.js"></script>
+</body>
+</html>
