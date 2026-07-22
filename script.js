@@ -213,12 +213,21 @@ document.querySelectorAll(".size-picker").forEach(picker => {
 document.querySelectorAll(".simple-color-picker").forEach(picker => {
   const productCard = picker.closest(".product-card");
   const selectedColor = productCard?.querySelector(".selected-color");
+  const productImage = productCard?.querySelector(".product-image img");
 
   picker.querySelectorAll(".simple-color-option").forEach(button => {
     button.addEventListener("click", () => {
       picker.querySelectorAll(".simple-color-option").forEach(item => item.classList.remove("active"));
       button.classList.add("active");
       if (selectedColor) selectedColor.textContent = button.dataset.color;
+      if (productImage && button.dataset.image) {
+        productImage.style.opacity = "0";
+        setTimeout(() => {
+          productImage.src = button.dataset.image;
+          productImage.alt = button.dataset.alt || `T-shirt ${button.dataset.color}`;
+          productImage.style.opacity = "1";
+        }, 150);
+      }
     });
   });
 });
