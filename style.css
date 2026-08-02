@@ -457,6 +457,39 @@ h1 em { color: var(--gold-light); font-weight: 500; }
   font-style: italic;
   font-size: clamp(42px, 6vw, 80px);
 }
+.collection-homme-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(7, 7, 7, 0.05) 38%, rgba(7, 7, 7, 0.82) 100%);
+  pointer-events: none;
+}
+.collection-homme-visual img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.collection-homme-visual span {
+  align-self: end;
+  justify-self: start;
+  margin: 0 7vw 62px;
+  color: #fff;
+  text-shadow: 0 3px 24px rgba(0, 0, 0, 0.55);
+}
+.collection-photo-credit {
+  position: absolute;
+  left: 7vw;
+  bottom: 26px;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
 .pattern {
   position: absolute;
   width: 330px;
