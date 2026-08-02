@@ -26,6 +26,9 @@ try {
   cart = [];
 }
 
+cart = [];
+localStorage.removeItem("shopluxe33-cart");
+
 function saveCart() {
   localStorage.setItem("shopluxe33-cart", JSON.stringify(cart));
 }
@@ -112,6 +115,22 @@ document.querySelectorAll(".nav a").forEach(link => {
     nav.classList.remove("open");
     menuButton.setAttribute("aria-expanded", "false");
   });
+});
+
+document.querySelectorAll(".add-to-cart").forEach(button => {
+  button.disabled = true;
+  button.textContent = "Rupture de stock";
+  button.setAttribute("aria-label", `${button.dataset.product} en rupture de stock`);
+});
+
+document.querySelectorAll(".whatsapp-product-btn, .telegram-product-btn").forEach(link => {
+  const product = link.closest(".product-card")?.querySelector("h3")?.textContent.trim() || "cet article";
+  const url = new URL(link.href);
+  url.searchParams.set("text", `Bonjour, je souhaite être informé(e) du réassort de : ${product}.`);
+  link.href = url.toString();
+  link.textContent = link.classList.contains("telegram-product-btn")
+    ? "Demander le réassort sur Telegram"
+    : "Demander le réassort sur WhatsApp";
 });
 
 document.querySelectorAll(".add-to-cart:not(:disabled)").forEach(button => {
@@ -230,6 +249,10 @@ document.querySelectorAll(".simple-color-picker").forEach(picker => {
       }
     });
   });
+});
+
+document.querySelector(".activity-bubble-close")?.addEventListener("click", () => {
+  document.querySelector("#activity-bubble")?.classList.add("hidden");
 });
 
 document.querySelector("#year").textContent = new Date().getFullYear();
