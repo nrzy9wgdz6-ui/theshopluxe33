@@ -255,5 +255,102 @@ document.querySelector(".activity-bubble-close")?.addEventListener("click", () =
   document.querySelector("#activity-bubble")?.classList.add("hidden");
 });
 
+const requestForm = document.querySelector("#custom-request-form");
+const requestPhoto = document.querySelector("#request-photo");
+const requestPreview = document.querySelector("#request-preview");
+const requestPreviewImage = document.querySelector("#request-preview-image");
+const requestFileName = document.querySelector("#request-file-name");
+const requestRemovePhoto = document.querySelector("#request-remove-photo");
+const requestStatus = document.querySelector("#request-status");
+let requestPreviewUrl = "";
+
+function clearRequestPhoto() {
+  if (requestPreviewUrl) URL.revokeObjectURL(requestPreviewUrl);
+  requestPreviewUrl = "";
+  requestPhoto.value = "";
+  requestPreviewImage.removeAttribute("src");
+  requestPreview.hidden = true;
+  requestStatus.textContent = "";
+}
+
+requestPhoto?.addEventListener("change", () => {
+  const file = requestPhoto.files?.[0];
+  if (!file) return clearRequestPhoto();
+
+  if (!file.type.startsWith("image/")) {
+    clearRequestPhoto();
+    requestStatus.textContent = "Choisissez une image au format JPG, PNG ou WebP.";
+    return;
+  }
+
+  if (file.size > 10 * 1024 * 1024) {
+    clearRequestPhoto();
+    requestStatus.textContent = "La photo dépasse 10 Mo. Choisissez une image plus légère.";
+    return;
+  }
+
+  if (requestPreviewUrl) URL.revokeObjectURL(requestPreviewUrl);
+  requestPreviewUrl = URL.createObjectURL(file);
+  requestPreviewImage.src = requestPreviewUrl;
+  requestFileName.textContent = file.name;
+  requestPreview.hidden = false;
+  requestStatus.textContent = "Photo ajoutée avec succès.";
+});
+
+requestRemovePhoto?.addEventListener("click", () => {
+  clearRequestPhoto();
+  requestPhoto.click();
+});
+
+requestForm?.addEventListener("submit", async event => {
+  event.preventDefault();
+  const photo = requestPhoto.files?.[0];
+  const description = document.querySelector("#request-description").value.trim();
+  const name = document.querySelector("#request-name").value.trim();
+  const type = document.querySelector("#request-type").value;
+  const size = document.querySelector("#request-size").value.trim();
+  const submitButton = requestForm.querySelector(".request-submit");
+
+  if (!photo || !description) {
+    requestStatus.textContent = "Ajoutez une photo et décrivez le modèle recherché.";
+    return;
+  }
+
+  const message = [
+    "Bonjour @luxery33, je souhaite rechercher un article.",
+    name ? `Prénom : ${name}` : "",
+    `Type : ${type}`,
+    size ? `Taille : ${size}` : "",
+    `Description : ${description}`
+  ].filter(Boolean).join("\n");
+
+  const shareData = {
+    title: "Demande personnalisée ShopLuxe33",
+    text: message,
+    files: [photo]
+  };
+
+  submitButton.disabled = true;
+  requestStatus.textContent = "Préparation de votre demande…";
+
+  try {
+    if (navigator.share && navigator.canShare?.(shareData)) {
+      await navigator.share(shareData);
+      requestStatus.textContent = "Demande partagée. Merci !";
+      return;
+    }
+
+    navigator.clipboard?.writeText(message).catch(() => {});
+    window.open("https://t.me/luxery33", "_blank", "noopener");
+    requestStatus.textContent = "Telegram est ouvert. Collez le message et joignez la photo sélectionnée.";
+  } catch (error) {
+    requestStatus.textContent = error?.name === "AbortError"
+      ? "Partage annulé. Vous pouvez réessayer quand vous le souhaitez."
+      : "Impossible de partager automatiquement. Ouvrez Telegram et contactez @luxery33.";
+  } finally {
+    submitButton.disabled = false;
+  }
+});
+
 document.querySelector("#year").textContent = new Date().getFullYear();
 updateCart();

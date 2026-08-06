@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,500;1,600;1,700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=collection-homme-20260802" />
+  <link rel="stylesheet" href="style.css?v=demande-telegram-20260806" />
   <meta name="theme-color" content="#070707" />
 </head>
 <body>
@@ -28,6 +28,7 @@
       <a href="#homme">Homme</a>
       <a href="#femme">Femme</a>
       <a href="#accessoires">Accessoires</a>
+      <a href="#demande">Demande</a>
       <a href="#contact">Contact</a>
     </nav>
 
@@ -521,6 +522,75 @@
       </div>
     </section>
 
+    <section class="request-section" id="demande">
+      <div class="request-intro">
+        <p class="eyebrow">Recherche personnalisée</p>
+        <h2>Vous cherchez une pièce précise&nbsp;?</h2>
+        <p>
+          Décrivez le vêtement souhaité et ajoutez une photo. Votre demande sera
+          préparée pour Telegram afin de l’envoyer directement à <strong>@luxery33</strong>.
+        </p>
+
+        <div class="request-steps" aria-label="Étapes de la demande">
+          <div><span>01</span><p>Décrivez votre recherche</p></div>
+          <div><span>02</span><p>Ajoutez votre photo</p></div>
+          <div><span>03</span><p>Envoyez sur Telegram</p></div>
+        </div>
+      </div>
+
+      <form class="request-form" id="custom-request-form">
+        <div class="request-fields">
+          <label>
+            <span>Votre prénom <small>(facultatif)</small></span>
+            <input id="request-name" name="name" type="text" autocomplete="name" maxlength="60" placeholder="Votre prénom" />
+          </label>
+
+          <label>
+            <span>Type d’article</span>
+            <select id="request-type" name="type">
+              <option value="Vêtement">Vêtement</option>
+              <option value="T-shirt ou polo">T-shirt ou polo</option>
+              <option value="Ensemble">Ensemble</option>
+              <option value="Chaussures">Chaussures</option>
+              <option value="Sac ou accessoire">Sac ou accessoire</option>
+              <option value="Autre article">Autre article</option>
+            </select>
+          </label>
+        </div>
+
+        <label>
+          <span>Taille recherchée <small>(facultatif)</small></span>
+          <input id="request-size" name="size" type="text" maxlength="30" placeholder="Exemple : M, 42 ou taille unique" />
+        </label>
+
+        <label>
+          <span>Décrivez le modèle souhaité</span>
+          <textarea id="request-description" name="description" rows="5" maxlength="700" required placeholder="Marque, couleur, matière, modèle ou tout autre détail utile…"></textarea>
+        </label>
+
+        <div class="request-photo-field">
+          <input class="request-file-input" id="request-photo" name="photo" type="file" accept="image/*" required />
+          <label class="request-upload" for="request-photo">
+            <span class="request-upload-icon" aria-hidden="true">+</span>
+            <strong>Ajouter une photo</strong>
+            <small>Photo depuis votre téléphone · 10 Mo maximum</small>
+          </label>
+
+          <div class="request-preview" id="request-preview" hidden>
+            <img id="request-preview-image" alt="Aperçu de la photo sélectionnée" />
+            <div>
+              <strong id="request-file-name"></strong>
+              <button id="request-remove-photo" type="button">Changer la photo</button>
+            </div>
+          </div>
+        </div>
+
+        <button class="request-submit" type="submit">Envoyer la demande sur Telegram</button>
+        <p class="request-help">Sur mobile, choisissez Telegram puis le contact <strong>@luxery33</strong>. Votre photo n’est pas stockée sur le site.</p>
+        <p class="request-status" id="request-status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
     <section class="contact-section" id="contact">
       <div>
         <p class="eyebrow">Restons connectés</p>
@@ -563,7 +633,7 @@
     <div>
       <strong>ShopLuxe33 est bien actif</strong>
       <p>Nous travaillons avec un large réseau de fournisseurs. Votre article peut être disponible dans la même semaine : il suffit de nous envoyer une photo.</p>
-      <a href="https://wa.me/33773267816" target="_blank" rel="noopener">Nous contacter</a>
+      <a href="#demande">Envoyer une demande</a>
     </div>
   </aside>
 
@@ -586,6 +656,6 @@
       <p>Le paiement et la livraison sont confirmés directement avec ShopLuxe33.</p>
     </div>
   </aside>
-  <script src="script.js?v=rupture-stock-20260802"></script>
+  <script src="script.js?v=demande-telegram-20260806"></script>
 </body>
 </html>
